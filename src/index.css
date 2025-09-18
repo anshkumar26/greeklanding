@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 218 54% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 218 54% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 218 54% 20%;
+
+    /* Navy Blue Primary Theme */
+    --primary: 218 54% 20%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 218 54% 35%;
+    --primary-dark: 218 54% 12%;
+
+    /* Gold Accent from Logo */
+    --accent-gold: 40 85% 55%;
+    --accent-gold-light: 40 85% 70%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 218 54% 20%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 218 54% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 218 54% 20%;
+
+    --radius: 0.75rem;
+
+    /* Custom Design System Colors */
+    --gradient-primary: linear-gradient(135deg, hsl(218 54% 20%), hsl(218 54% 35%));
+    --gradient-accent: linear-gradient(135deg, hsl(40 85% 55%), hsl(40 85% 70%));
+    --gradient-soft: linear-gradient(180deg, hsl(220 14% 98%), hsl(220 14% 96%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(218 54% 20% / 0.1);
+    --shadow-medium: 0 8px 30px -4px hsl(218 54% 20% / 0.15);
+    --shadow-strong: 0 20px 60px -12px hsl(218 54% 20% / 0.25);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 218 54% 12%;
+    --foreground: 0 0% 98%;
+
+    --card: 218 54% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 218 54% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 218 54% 12%;
+
+    --secondary: 218 30% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 218 30% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 218 30% 18%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 218 30% 18%;
+    --input: 218 30% 18%;
+    --ring: 40 85% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Hero Button */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary-light text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg shadow-medium hover:shadow-strong transition-all duration-300 hover:scale-105;
+  }
+  
+  /* Accent Button */
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent-gold to-accent-gold-light text-white px-6 py-3 rounded-full font-semibold shadow-soft hover:shadow-medium transition-all duration-300 hover:scale-105;
+  }
+  
+  /* Floating Card */
+  .card-floating {
+    @apply bg-card border border-border/50 shadow-soft hover:shadow-medium transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  /* Section Padding */
+  .section-padding {
+    @apply py-20 px-4 md:px-8;
+  }
+  
+  /* Gradient Text */
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-gold)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
